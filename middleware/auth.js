@@ -26,8 +26,8 @@ module.exports = (rol) => (req, res, next) => {
 
   } catch (error) {
     if (error.name === 'JsonWebTokenError') {
-      res.status(500).json({ msg: 'token incorrecto' })
+      return res.status(500).json({ msg: 'token incorrecto' })
     }
-    res.status(500).json({ msg: 'ERROR SERVER: ', error })
+    return res.status(500).json({ msg: 'ERROR SERVER: ', error })
   }
 }
